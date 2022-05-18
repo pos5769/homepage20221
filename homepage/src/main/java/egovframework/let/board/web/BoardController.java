@@ -1,0 +1,66 @@
+package egovframework.let.board.web;
+
+import java.util.List;
+import java.util.Map;
+
+import egovframework.com.cmm.ComDefaultVO;
+import egovframework.com.cmm.LoginVO;
+import egovframework.com.cmm.util.EgovUserDetailsHelper;
+import egovframework.let.board.service.BoardService;
+import egovframework.let.board.service.BoardVO;
+import egovframework.let.cop.bbs.service.EgovBBSManageService;
+import egovframework.let.utl.fcc.service.EgovStringUtil;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+
+@Controller
+public class BoardController {
+	
+	@Resource(name = "boardService")
+    private BoardService boardService;
+	
+	//게시물 목록 가져오기
+	@RequestMapping(value = "/board/selectList.do")
+	public String selectList(@ModelAttribute("searchVO") BoardVO searchVO,  
+			HttpServletRequest request, ModelMap model) throws Exception{
+		//공지 게시글
+		searchVO.setNoticeAt("Y");
+		List<EgovMap> noticeResultList = boardService.selectBoardList(searchVO);
+		model.addAttribute("noticeResultList", noticeResultList);
+		
+		PaginationInfo paginationInfo = new PaginationInfo();
+		
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex()); // 현재 페이지 번호
+		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit()); // 한 페이지당 게시되는 게시물 건 수
+		paginationInfo.setPageSize(searchVO.getPageSize()); // 페이지 리스트에 게시되는 페이지 건수
+		
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		
+		searchVO.setNoticeAt("N");
+		List<EgovMap> resultList = boardService.selectBoardList(searchVO);
+		model.addAttribute("resultList", resultList);
+		
+		int totCnt = boardService.selectBoardListCnt(searchVO);
+		
+		paginationInfo.setTotalRecordCount(totCnt); // 전체 게시물 건 수
+		model.addAttribute("paginationInfo", paginationInfo);
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "board/BoardSelectList";
+	}
+}
