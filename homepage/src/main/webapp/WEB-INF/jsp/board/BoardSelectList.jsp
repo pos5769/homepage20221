@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- 기본 URL --%>
-<<c:url var="_BASE_PARAM" value="">
+<c:url var="_BASE_PARAM" value="">
 	<c:param name="menuNo" value="50"/>
 	<c:if test="${not empty searchVO.searchCondition}">
 		<c:param name="searchCondition" value="${searchVO.searchCondition}"/>
@@ -95,9 +95,7 @@
 						<%-- 일반 글 --%>
 						<c:forEach var="result" items="${resultList}" varStatus="status">
 							<tr>
-								<td class="num">
-									<c:out value="${paginationInfo.totalRecordCount} - ((searchVO.pageIndex-1) * searchVO.pageUnit) - (status.count - 1)}"/>
-								</td>
+								<td class="num"><c:out value="${paginationInfo.totalRecordCount - ((searchVO.pageIndex-1) * searchVO.pageUnit) - (status.count - 1)}"/></td>
 								<td class="tit">
 									<c:url var="viewUrl" value="/board/select.do${_BASE_PARAM}">
 										<c:param name="boardId" value="${result.boardId}"/>
