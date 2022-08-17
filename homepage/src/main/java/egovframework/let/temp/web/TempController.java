@@ -1,16 +1,6 @@
 package egovframework.let.temp.web;
 
 import java.util.List;
-import java.util.Map;
-
-import egovframework.com.cmm.ComDefaultVO;
-import egovframework.let.cop.bbs.service.BoardVO;
-import egovframework.let.cop.bbs.service.EgovBBSManageService;
-import egovframework.let.temp.service.TempService;
-import egovframework.let.temp.service.TempVO;
-import egovframework.let.utl.fcc.service.EgovStringUtil;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
+import egovframework.let.temp.service.TempService;
+import egovframework.let.temp.service.TempVO;
+import egovframework.let.utl.fcc.service.EgovStringUtil;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 
 @Controller
@@ -123,6 +117,30 @@ public class TempController {
 			HttpServletRequest request, ModelMap model) throws Exception{
 		
 		return "/temp/JstlImport";
+	}
+	
+	//ajax샘플
+	@RequestMapping(value = "/temp/ajaxRegist.do")
+	public String tempAjaxRegist(@ModelAttribute("searchVO") TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception {
+		
+		return "/temp/TempAjaxRegist";
+	}
+	
+	//ajax목록
+	@RequestMapping(value = "/temp/ajaxList.do")
+	public String tempAjaxList(@ModelAttribute("searchVO") TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception {
+		//내용 저장
+		if(!EgovStringUtil.isEmpty(searchVO.getTempVal())) {
+			tempService.insertTemp(searchVO);
+		}
+		
+		searchVO.setRecordCountPerPage(Integer.MAX_VALUE);
+		searchVO.setFirstIndex(0);
+		
+		List<EgovMap> resultList = tempService.selectTempList(searchVO);
+		model.addAttribute("resultList", resultList);
+		
+		return "/temp/TempAjaxList";
 	}
 	
 }

@@ -16,6 +16,8 @@
 <link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
 <!-- 공통 Style -->
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/asset/Mini Homepage/css/reset.css">
+<link rel="stylesheet" href="/asset/Mini Homepage/css/style.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -84,6 +86,87 @@
 		</div>
 	</div>
 </div>
+
+<!-- Mini Homepage Start -->
+
+<hr />
+<form id="replyForm">
+	<input type="hidden" name="repBbsNo" value="${result.boardId}" />
+	<textarea name="repContent" rows="5" cols="25"></textarea><br>
+	<input type="button" value="저장" id="saveBtn" style="cursor:pointer;"/>
+</form>
+
+<hr />
+<div id="replyDiv">
+
+</div>
+
+<!-- Mini Homepage End -->
+
+<script type="text/javascript">
+	function refreshReplyList() {
+		$.ajax({
+			  url: "${pageContext.request.contextPath}/reply/list.do", 
+			  method: "GET", 
+			  data: {repBbsNo: $('[name="repBbsNo"]').val()},
+			  dataType: "json" 
+			}).done(function( msg ) { 
+			  console.log(msg); 
+			  $('#replyDiv').empty();
+			  for (var i = 0; i < msg.length; i++) {
+				var vo = msg[i];
+				console.log(vo.repNo, vo.repContent, vo.repWriter, vo.repRegDate);	
+				$('<div>').text(vo.repWriter).appendTo('#replyDiv'); 
+				$('<div>').text(vo.repContent).appendTo('#replyDiv'); 
+				$('<div>').text(vo.repRegDate).appendTo('#replyDiv');
+				
+				if(vo.repWriter === '${LoginVO.id}') {
+					$('<button>').attr('type', 'button').attr('data-no', vo.repNo).addClass('delBtn').text('삭제').appendTo('#replyDiv');
+				}
+				$('<hr>').appendTo('#replyDiv');
+			}	  
+			}).fail(function( jqXHR, textStatus ) { 
+			  alert( "Request failed: " + textStatus );
+			});
+	}
+	
+	$('#replyDiv').on('click', '.delBtn', function() {
+		$.ajax({
+			  url: "${pageContext.request.contextPath}/reply/del.do", 
+			  method: "GET", 
+			  data: {
+				  repNo: $(this).attr('data-no')
+			  },
+			  dataType: "json" 
+			}).done(function( msg ) { 
+			  console.log(msg);
+			  alert(msg.no + "개의 댓글을 삭제했습니다.");	
+			  refreshReplyList();
+			}).fail(function( jqXHR, textStatus ) { 
+			  alert( "Request failed: " + textStatus );
+			});
+	});
+	
+	refreshReplyList();
+
+$('#saveBtn').on('click', function() {		
+	$.ajax({
+	  url: "${pageContext.request.contextPath}/reply/add.do", 
+	  method: "POST", 
+	  data: {repBbsNo: $('[name="repBbsNo"]').val(), repContent: $('[name="repContent"]').val()}, 
+	  dataType: "json" 
+	}).done(function( msg ) { 
+	  alert(msg.no + "개의 댓글을 저장했습니다."); 
+	  	$('[name="repContent"]').val('');
+	  	refreshReplyList();
+	}).fail(function( jqXHR, textStatus ) { 
+	  alert( "Request failed: " + textStatus );
+	}).always(function() { 
+		console.log("complete");
+	});
+});
+</script>
+
 <script>
 $(document).ready(function(){
 	//게시 글 삭제

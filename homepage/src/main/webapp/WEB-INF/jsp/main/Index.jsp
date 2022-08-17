@@ -18,19 +18,20 @@
 <body>
 <c:choose>
 	<c:when test="${empty USER_INFO.id}">
-		<a href="/login/egovLoginUsr.do" class="login">로그인</a>
+		<a href="/login/egovLoginUsr.do" class="login">로그인</a> |
 	</c:when>
 	<c:otherwise>
-		<a href="/login/actionLogout.do"><c:out value="${USER_INFO.name}"/>님 로그아웃</a>
+		<a href="/login/actionLogout.do"><c:out value="${USER_INFO.name}"/>님 로그아웃</a> |
 	</c:otherwise>
 </c:choose>
+<a href="/board/mainPage.do">홈으로</a>
 
 <div class="dim"></div>
 <!-- 로그인 -->
 <div class="layer-popup layer-login" style="display:none;">
 	<header class="layer-header">
 		<span class="logo">
-			<span class="img-logo">한국폴리텍대학 대전캠퍼스 스마트소프트웨어학과</span>
+			<span class="img-logo"></span>
 		</span>
 		<button type="button" class="layer-close"><span>팝업 닫기</span></button>
 	</header>

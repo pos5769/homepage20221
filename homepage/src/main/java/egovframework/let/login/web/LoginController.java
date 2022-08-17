@@ -30,10 +30,13 @@ public class LoginController {
 		LoginVO resultVO = loginService.actionLogin(loginVO);
 		if(resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("")) {
 			request.getSession().setAttribute("LoginVO", resultVO);
-			return "forward:/index.do";
+//			return "forward:/index.do";
+			return "redirect:" + request.getHeader("Referer");
+
 		} else {
 			model.addAttribute("loginMessage", egovMessageSource.getMessage("fail.common.login"));
-			return "forward:/index.do";
+//			return "forward:/index.do";
+			return "redirect:" + request.getHeader("Referer");
 		}
 	}
 	
@@ -43,7 +46,8 @@ public class LoginController {
 		
 		//RequestContextHolder.getRequestAttributes().removeAttribute("LoginVO", RequestAttributes.SCOPE_SESSION); //로그아웃 할때 로그인의 정보만 사라지게 하는거
 		request.getSession().invalidate(); //로그아웃 할때 모든 세션이 다 사라지게 하는거
-		
-		return "forward:/index.do";
+//		return "forward:/index.do";
+		return "redirect:" + request.getHeader("Referer");
 	}
+	
 }

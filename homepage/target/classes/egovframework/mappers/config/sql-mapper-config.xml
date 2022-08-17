@@ -2,9 +2,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
+<settings>
+<!-- 밑줄표기법의 컬럼명을 낙타표기법의 변수명과 자동 -->
+	 <setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings>
+
     <typeAliases>
 		<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
 		<typeAlias alias="tempVO" type="egovframework.let.temp.service.TempVO"/>
 		<typeAlias alias="crudVO" type="egovframework.let.crud.service.CrudVO"/>
+		<typeAlias alias="crud2VO" type="egovframework.let.crud2.service.Crud2VO"/>
+		<typeAlias alias="joinVO" type="egovframework.let.join.service.JoinVO"/>
     </typeAliases>
 </configuration>

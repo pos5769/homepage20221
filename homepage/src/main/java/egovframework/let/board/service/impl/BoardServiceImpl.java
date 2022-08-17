@@ -1,17 +1,16 @@
 package egovframework.let.board.service.impl;
 
-import egovframework.let.board.service.BoardService;
-import egovframework.let.board.service.BoardVO;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import egovframework.rte.fdl.property.EgovPropertyService;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+import egovframework.let.board.service.BoardService;
+import egovframework.let.board.service.BoardVO;
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import egovframework.rte.fdl.idgnr.EgovIdGnrService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 
 @Service("boardService")

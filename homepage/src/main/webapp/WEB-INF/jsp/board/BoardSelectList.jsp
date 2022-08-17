@@ -29,6 +29,7 @@
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
+<%@ include file="/WEB-INF/jsp/main/Index.jsp" %>
 <body>
 
 <div class="container">

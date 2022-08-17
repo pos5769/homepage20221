@@ -1,0 +1,415 @@
+body {
+    margin: 0;
+    font-family: 'Single Day', cursive;
+    line-height: normal;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
+article {
+    display: block;
+}
+.SectionTitle_sectiontitle {
+    display: table;
+    position: relative;
+    margin: 0 auto 3rem;
+}
+.SectionTitle_text {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+.SectionTitle_link_wrapper {
+    position: absolute;
+    top: 50%;
+    left: -3rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    opacity: .5;
+    cursor: pointer;
+}
+.SectionTitle_link {
+    width: 100%;
+}
+img, svg {
+    vertical-align: middle;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+b, strong {
+    font-weight: bolder;
+}
+ul{
+    padding-left: 1rem;
+    margin: 0;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li {
+    margin-bottom: 0.5rem;
+    display: list-item;
+}
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.Header_header a:hover {
+    color: greenyellow;
+}
+hr {
+    color: inherit;
+    background-color: currentColor;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
+.PageUpButton_pageupbutton {
+    display: block;
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    opacity: .5;
+}
+.PageUpButton_img {
+    width: 100%;
+}
+
+/*---------- Header start ----------*/
+header {
+    display: block;
+}
+.Header_header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 10;
+}
+.Header_background_color {
+    background-color: #fff;
+    box-shadow: 0 1px 0.3rem hsl(0deg 0% 80% / 80%);
+}
+.Header_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 90rem;
+    height: 4.5rem;
+    padding: 1.25rem 2rem;
+    margin: 0 auto;
+}
+.Header_title {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #000000;
+    line-height: 2rem;
+    cursor: pointer;
+}
+.Header_navigation {
+    float: right;
+}
+.Header_navigation_menu {
+    display: inline-block;
+    padding: 0 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #000000;
+    line-height: 2rem;
+    cursor: pointer;
+}
+/* .menu-toggle-btn {
+    position: absolute;
+    float: right;
+    cursor: pointer;
+} */
+/*---------- Header end ----------*/
+
+/*---------- Masted start ----------*/
+.Masthead_masthead {
+    position: relative;
+}
+.Masthead_masthead:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: url(../images/MainPage.jpg) 100% no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+.Masthead_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 71.25rem;
+    margin: 0 auto;
+    padding: calc(4rem + 4.5rem) 2rem 4rem;
+    text-align: center;
+}
+.Masthead_title {
+    font-weight: 400;
+    font-size: 4rem;
+    color: #000000;
+    word-break: keep-all;
+}
+.Masthead_divider {
+    width: 3.25rem;
+    height: 0;
+    margin: 1.5rem auto;
+    border: none;
+    border-top: 0.2rem solid #000000;
+    opacity: 1;
+}
+.Masthead_description {
+    margin: 0 auto 2rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #000000;
+    line-height: 1.5;
+}
+.Masthead_find-out-more {
+    display: inline-block;   
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10rem;
+    background-color: greenyellow;
+    font-weight: 400;
+    font-size: 1rem;
+    text-decoration: none;
+    line-height: 1.5;
+    cursor: pointer;
+}
+.Masthead_find-out-more a:hover {
+	color: #000;
+}
+/*---------- Masted end ----------*/
+
+/*---------- About-me start ----------*/
+.AboutMe_aboutme {
+    background-color: #fff;
+}
+.AboutMe_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 71.25rem;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+}
+.AboutMe_basic_infos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+}
+.AboutMe_basic_info_wrapper:first-child {
+    margin-bottom: 2rem;
+}
+.AboutMe_basic_info_wrapper {
+    width: 33.3333%;
+}
+.AboutMe_basic_info {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    max-width: 14rem;
+    margin: 0 auto;
+    opacity: .8;
+}
+.AboutMe_icon_img_wrapper {
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    margin-top: 0.2rem;
+    margin-right: 2rem;
+}
+.AboutMe_icon_img {
+    width: 100%;
+}
+.AboutMe_field_label {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.AboutMe_field_value {
+    font-weight: 400;
+    font-size: 1rem;
+}
+.AboutMe_email {
+    text-decoration: none;
+    color: inherit;
+}
+.AboutMe_email:hover {
+    color: blue;
+}
+/*---------- About-me end ----------*/
+
+/*---------- Skills start ----------*/
+.Skills_skills {
+    background-color: #f9c51d;
+}
+.Skills_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 71.25rem;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    height: 79rem;
+}
+.Skills_tech_stacks_container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+    height: calc(100% - (7.5rem + 1px));
+}
+.Skills_tech_stacks {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 17rem;
+    padding: 1.5rem;
+    margin: 0 auto 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 1rem 1rem 1rem 0 rgb(68 68 68 / 20%);
+}
+.Skills_title {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #000000;
+}
+.Skills_img {
+    display: block;
+    width: 100%;
+}
+/*---------- Skills end ----------*/
+
+/*---------- Archiving start ----------*/
+.Archiving_archiving {
+    background-color: #00ffff;
+}
+.Archiving_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 71.25rem;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+}
+.Archiving_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.Archiving_git-hub {
+    box-sizing: border-box;
+    width: 26rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+.Archiving_tistory {
+    box-sizing: border-box;
+    width: 26rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+.Archiving_img_wrapper {
+    display: block;
+    width: 12rem;
+    margin-bottom: 1rem;
+}
+.Archiving_img {
+    width: 100%;
+}
+.Archiving_url {
+    margin-bottom: 1rem;
+    color: #258ddb;
+}
+.Archiving_description {
+    color: #444;
+}
+.Archiving_description ul {
+    padding-left: 1rem;
+    margin: 0;
+}
+.Archiving_description ul li {
+    margin-bottom: 0.5rem;
+}
+/*---------- Archiving end ----------*/
+
+/*---------- Footer start ----------*/
+footer {
+    display: block;
+}
+.Footer_footer {
+    height: 11rem;
+    padding-top: 3rem;
+    background-color: #222;
+    text-align: center;
+}
+.Footer_icons {
+    margin-bottom: 1rem;
+}
+#Footer_icon_wrapper_white {
+    background-color: #fff;
+}
+.Footer_icon_wrapper {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    padding: 2px;
+    margin: 0 0.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.Footer_icon {
+    width: 100%;
+}
+.Footer_copyright {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #fff;
+}
+/*---------- Footer end ----------*/

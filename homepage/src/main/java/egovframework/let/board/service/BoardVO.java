@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import egovframework.com.cmm.ComDefaultVO;
 
-
 public class BoardVO extends ComDefaultVO implements Serializable {
 
 	//게시판ID

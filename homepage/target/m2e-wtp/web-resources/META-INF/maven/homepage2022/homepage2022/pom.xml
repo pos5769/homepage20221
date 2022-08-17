@@ -152,6 +152,13 @@
 		</dependency>
 		-->
 
+		<!-- JAVA 객체와 JSON -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.13.3</version>
+		</dependency>
+
 		<!-- log4jdbc driver -->
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>
@@ -195,6 +202,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.2.4.Final</version>
+        </dependency>
+        	
+        <dependency>
+        	<groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
         </dependency>
         
 		<!-- 썸네일 -->
