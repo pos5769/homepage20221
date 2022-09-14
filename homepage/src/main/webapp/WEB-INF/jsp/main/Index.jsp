@@ -85,6 +85,9 @@ function vali(){
 	alert("${loginMessage}");
 </c:if>
 
+<c:if test="${not empty message}">
+	alert("${message}");
+</c:if>
 </script>
 
 </body>

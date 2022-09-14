@@ -87,8 +87,6 @@
 	</div>
 </div>
 
-<!-- Mini Homepage Start -->
-
 <hr />
 <form id="replyForm">
 	<input type="hidden" name="repBbsNo" value="${result.boardId}" />
@@ -100,8 +98,6 @@
 <div id="replyDiv">
 
 </div>
-
-<!-- Mini Homepage End -->
 
 <script type="text/javascript">
 	function refreshReplyList() {
