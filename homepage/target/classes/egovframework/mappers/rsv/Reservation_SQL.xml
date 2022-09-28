@@ -20,7 +20,7 @@
 		<result property="frstRegisterId" column="FRST_REGISTER_ID"/>
 		<result property="applyCnt" column="APPLY_CNT"/>
 		<result property="applyStatus" column="APPLY_STATUS"/>
-		<result property="applyFcnt" column="APPLY_F_CNT"/>
+		<result property="applyFCnt" column="APPLY_F_CNT"/>
 	</resultMap>
 	
 	<select id="selectReservationList" resultType="egovMap">

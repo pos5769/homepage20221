@@ -27,5 +27,4 @@ public interface ReservationMapper {
 	//예약 삭제하기
 	void deleteReservation(ReservationVO vo) throws Exception;
 	
-	
 }

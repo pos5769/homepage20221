@@ -91,8 +91,8 @@ textarea {
 	 font-family:"Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", Helvetica,"돋움", Dotum, "굴림", Gulim, sans-serif;
 }
 button {
-/* 	border:none; */
-/* 	background:none; */
+	border:none;
+	background:none;
 	cursor:pointer;
 }
 button:focus{
@@ -855,9 +855,9 @@ button,
 	overflow:hidden;
 	transition-duration:0.3s;
 	transition-property:color, background-color;
-/* 	border-radius:0; */
-/* 	padding:0; */
-/* 	border-radius:2px; */
+	border-radius:0;
+	padding:0;
+	border-radius:2px;
 }
 /*a.btn + a.btn,
 a[class^=btn-] + a[class^=btn-] { margin-left:4px; }*/
@@ -1246,6 +1246,7 @@ input.datepicker + span {
 	position:relative;
 	vertical-align:middle;
 }
+/*
 .ui-datepicker { 
 	display:none; 
 	background-color:#fff;
@@ -1341,9 +1342,9 @@ input.datepicker + span {
 	font-weight:bold;
 	border:0;
 }
-/*.ui-datepicker th.ui-datepicker-week-end span[title=Sunday] {
+.ui-datepicker th.ui-datepicker-week-end span[title=Sunday] {
 	color:#dd3423;
-}*/ 
+}
 .ui-datepicker td:first-child a{
 	 color:#dd3423;
 }
@@ -1464,7 +1465,7 @@ input.datepicker + span {
 	box-sizing:border-box;
 	box-shadow:0 3px 7px rgba(0,0,0,.2);
 }
-
+*/
 
 /* 달력 */
 .mn-date .schedule_box {
